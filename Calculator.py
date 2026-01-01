@@ -5,6 +5,7 @@ memory = None
 last_result = None
 history = []
 
+# Helps to store the memory
 def memory_store():
     global memory, last_result
     if last_result is None:
@@ -13,6 +14,7 @@ def memory_store():
         memory = last_result
         print(f"Stored {memory} in memory")
 
+#Recalls the memory value
 def memory_recall():
     if memory is None:
         print("Memory is empty")
@@ -20,34 +22,40 @@ def memory_recall():
     print(f"Memory value: {memory}")
     return memory
 
+# Clears the memory
 def memory_clear():
     global memory
     memory = None
     print("Memory cleared")
 
+# Gets two numbers from user
 def getnum():
     x = get_number("Enter the first number : ")
     y = get_number("Enter the second number : ")
     return x,y
 
+# Performs addition
 def Summation(x , y):
     global last_result
     print(f"{x} + {y} = {x+y}")
     last_result = x + y
     history.append(f"{x} + {y} = {x+y}")
 
+# Performs subtraction
 def Subtraction(x , y):
     global last_result
     print(f"{x} + {y} = {x-y}")
     last_result = x - y
     history.append(f"{x} - {y} = {x-y}")
 
+# Performs multiplication
 def Multiplication(x , y):
     global last_result
     print(f"{x} * {y} = {x*y}")
     last_result = x * y
     history.append(f"{x} * {y} = {x*y}")
 
+# Performs division
 def Division(x , y):
     global last_result
     try:
@@ -57,6 +65,7 @@ def Division(x , y):
     except ZeroDivisionError:
         print("Please number other than zero")
 
+# Performs modulus
 def Modulus(x , y):
     global last_result
     try:
@@ -66,12 +75,14 @@ def Modulus(x , y):
     except ZeroDivisionError:
         print("Please number other than zero")
 
+# Performs exponentiation
 def Square(x , y):
     global last_result
     print(f"{x} ** {y} = {x**y}")
     last_result = x ** y
     history.append(f"{x} ** {y} = {x**y}")
 
+# Evaluates mathematical expression
 def Expression():
     exp = input("Enter Expression : ")
     try:
@@ -82,6 +93,7 @@ def Expression():
         print("please enter valid expression")
 
 def convert_temperature(value, from_unit, to_unit):
+
     if from_unit == "C":
         c = value
     elif from_unit == "F":
@@ -114,6 +126,7 @@ def convert_weight(value, from_unit, to_unit):
     }
     return value * units[from_unit] / units[to_unit]
 
+# Handles unit conversions
 def Conversion():
     print("\nSelect Conversion Type")
     print("1. Temperature")
@@ -152,6 +165,7 @@ def Conversion():
     else:
         print("Invalid choice")
 
+# Gets number or memory value
 def get_number(prompt):
     value = input(prompt)
 
